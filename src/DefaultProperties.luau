@@ -1,52 +1,67 @@
---feel free to modify the defaultProperties table, add your own properties and change whathever you want!
+--not all properties are here, but feel free to modify the defaultProperties table, add your own properties and change whathever you want
 
 local defaultProperties = {
-    ScreenGui = {
-        ResetOnSpawn = false,
-        IgnoreGuiInset = true
-    },
-    SurfaceGui = {
-        ResetOnSpawn = false,
-        AlwaysOnTop = false
-    },
-    BillboardGui = {
-        ResetOnSpawn = false,
-        AlwaysOnTop = false
-    },
-    Frame = {
+	ScreenGui = {
+		Enabled = true,
+		ResetOnSpawn = false,
+		IgnoreGuiInset = true,
+		DisplayOrder = 0
+	},
+	SurfaceGui = {
+		Enabled = true,
+		ResetOnSpawn = false,
+		AlwaysOnTop = false
+	},
+	BillboardGui = {
+		Enabled = true,
+		ResetOnSpawn = false,
+		AlwaysOnTop = false
+	},
+	Frame = {
+		Size = UDim2.new(0.5,0,0.5,0),
+	},
+	ScrollingFrame = {
+		Size = UDim2.new(0.5,0,0.5,0),
+		CanvasSize = UDim2.new(0,0,1,0),
+		AutomaticCanvasSize = Enum.AutomaticSize.XY
+	},
+	ViewportFrame = {
+		Size = UDim2.new(0.5,0,0.5,0),
+	},
+	VideoFrame = {
+		Size = UDim2.new(0.5,0,0.5,0),
+	},
+	TextBox = {
+		Size = UDim2.new(0.5,0,0.5,0),
 
-    },
-    ScrollingFrame = {
-        CanvasSize = UDim2.new(0,0,1,0),
-        AutomaticCanvasSize = Enum.AutomaticSize.XY
-    },
-    ViewportFrame = {
+		TextScaled = true
+	},
+	TextButton = {
+		Size = UDim2.new(0.5,0,0.5,0),
 
-    },
-    VideoFrame = {
+		TextScaled = true
+	},
+	TextLabel = {
+		Size = UDim2.new(0.5,0,0.5,0),
 
-    },
-    TextBox = {
-        TextScaled = true
-    },
-    TextButton = {
-        TextScaled = true
-    },
-    TextLabel = {
-        TextScaled = true
-    },
-    ImageLabel = {
+		TextScaled = true
+	},
+	ImageLabel = {
+		Size = UDim2.new(0.5,0,0.5,0),
+		
+		BackgroundTransparency = 1
+	},
+	ImageButton = {
+		Size = UDim2.new(0.5,0,0.5,0),
 
-    },
-    ImageButton = {
-
-    },
-    CanvasGroup = {
-
-    },
-    Path2D = {
-
-    }
+		BackgroundTransparency = 1
+	},
+	CanvasGroup = {
+		Size = UDim2.new(0.5,0,0.5,0)
+	},
+	Path2D = {
+		Size = UDim2.new(0.5,0,0.5,0)
+	}
 }
 
 return defaultProperties

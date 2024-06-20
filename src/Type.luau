@@ -5,18 +5,18 @@ export type Element = "ScreenGui" | "SurfaceGui" | "BillboardGui" | "Frame" | "S
 export type Feature = "UIGridLayout" | "UIListLayout" | "UIPageLayout" | "UITableLayout" | "UIPadding" |"UIFlexItem" | "UIAspectRatioConstraint" | "UISizeConstraint" | "UITextSizeConstraint" | "UICorner" | "UIGradient" | "UIScale" | "UIStroke"
 
 export type Dictionary = {
-    [any]: any?
+	[any]: any?
 }
 
 export type Children = {
-    [number]: GuiObject | Instance
+	[number]: Template
 }
 
 export type Template = {
-    elementType: Element,
-    properties: Dictionary | nil,
-    features: Dictionary | nil,
-    children: Children | nil
+	elementType: Element,
+	properties: Dictionary | nil,
+	features: Dictionary | nil,
+	children: Children | nil
 }
 
 return nil
