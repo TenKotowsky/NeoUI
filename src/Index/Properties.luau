@@ -9,7 +9,7 @@ local Properties = {}
 function Properties:SetProperties(element: GuiBase | Instance, properties: Type.Dictionary | nil, initialCreation: boolean)
     local properties: Type.Dictionary = properties or {}
     if initialCreation then
-        for property: string, value: any in DefaultProperties[element.ClassName] do
+        for property: string, value: any in pairs(DefaultProperties[element.ClassName]) do
             element[property] = value
         end
     end
@@ -18,19 +18,22 @@ function Properties:SetProperties(element: GuiBase | Instance, properties: Type.
     end
 end
 
-function Properties:SetPropertiesFromTemplate(element: GuiBase | Instance, template: Type.Template, overwriteProperties: Type.Dictionar | nil)
+function Properties:SetPropertiesFromTemplate(element: GuiBase | Instance, template: Type.Template, overwriteProperties: Type.Dictionary | nil)
 	local overwriteProperties: Type.Dictionary = overwriteProperties or {}
 
-    for property: string, value: any in DefaultProperties[element.ClassName] do
+    --first apply the defaults
+    for property: string, value: any in pairs(DefaultProperties[element.ClassName]) do
         element[property] = value
     end
 
-    for property: string, value: any in template.properties do
-        if overwriteProperties[property] then
-            element[property] = overwriteProperties[property]
-        else
-            element[property] = value
-        end
+    --if the template has properties specified, apply these
+    for property: string, value: any in pairs(template.properties) do
+         element[property] = value
+    end
+
+    --if the template's properties are supposed to be overwritten, well, overwrite them
+    for property: string, value: any in pairs (overwriteProperties) do
+        element[property] = value
     end
 
     if template.children then
