@@ -7,7 +7,7 @@ local Features = require(script.Parent.Features)
 
 local Properties = {}
 
-function Properties:SetProperties(element: GuiBase | Instance, properties: Type.Dictionary | nil, initialCreation: boolean)
+function Properties:SetProperties(element: GuiObject | Instance, properties: Type.Dictionary?, initialCreation: boolean)
 	local properties: Type.Dictionary = properties or {}
 	if initialCreation then
 		for property: string, value: any in pairs(DefaultProperties[element.ClassName]) do
@@ -19,7 +19,7 @@ function Properties:SetProperties(element: GuiBase | Instance, properties: Type.
 	end
 end
 
-function Properties:SetPropertiesFromTemplate(element: GuiBase | Instance, template: Type.Template, overwriteProperties: Type.Dictionary | nil)
+function Properties:SetPropertiesFromTemplate(element: GuiObject | Instance, template: Type.Template, overwriteProperties: Type.Dictionary?)
 	local overwriteProperties: Type.Dictionary = overwriteProperties or {}
 
 	--first apply the defaults
@@ -39,7 +39,7 @@ function Properties:SetPropertiesFromTemplate(element: GuiBase | Instance, templ
 
 	if template.children then
 		for _, child: Type.Template in pairs(template.children) do
-			local newChild: GuiBase | Instance = Instance.new(child.elementType)
+			local newChild = Instance.new(child.elementType) :: Instance & {Parent: Instance}
 			newChild.Parent = element
 			Properties:SetPropertiesFromTemplate(newChild, child, overwriteProperties)
 			if child.features then

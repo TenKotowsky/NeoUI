@@ -7,8 +7,8 @@ local Features = require(script.Features)
 
 local Index = {}
 
-function Index.createElement(parent: any, elementType: Type.Element, properties: Type.Dictionary | nil, features: Type.Dictionary | nil): GuiBase | Instance
-	local element: GuiBase | Instance = Instance.new(elementType)
+function Index.createElement(parent: Instance, elementType: Type.Element, properties: Type.Dictionary?, features: Type.Dictionary?): GuiBase | Instance
+	local element = Instance.new(elementType) :: Instance & {Parent: Instance}
 	element.Parent = parent
 	Properties:SetProperties(element, properties, true)
 	if features then
@@ -17,8 +17,8 @@ function Index.createElement(parent: any, elementType: Type.Element, properties:
 	return element :: typeof(element)
 end
 
-function Index.createFromTemplate(parent: any, template: Type.Template, overwriteProperties: Type.Dictionary | nil)
-	local element: GuiBase | Instance = Instance.new(template.elementType)
+function Index.createFromTemplate(parent: Instance, template: Type.Template, overwriteProperties: Type.Dictionary?)
+	local element: Instance = Instance.new(template.elementType) :: Instance & {Parent: Instance}
 	element.Parent = parent
 	Properties:SetPropertiesFromTemplate(element, template, overwriteProperties)
 	if template.features then
@@ -27,18 +27,18 @@ function Index.createFromTemplate(parent: any, template: Type.Template, overwrit
 	return element :: typeof(element)
 end
 
-function Index.createTemplate(elementType: Type.Element, properties: Type.Dictionary | nil, features: Type.Dictionary | nil, children: Type.Children | nil): Type.Template
+function Index.createTemplate(elementType: Type.Element, properties: Type.Dictionary?, features: Type.Dictionary?, children: Type.Children?): Type.Template
 	return {elementType = elementType, properties = properties, features = features, children = children} :: Type.Template
 end
 
-function Index.copyElement(parent: any, elementToCopy: GuiBase | Instance, properties: Type.Dictionary | nil): GuiBase | Instance
-	local element: GuiBase | Instance = elementToCopy:Clone()
+function Index.copyElement(parent: Instance, elementToCopy: GuiObject | Instance, properties: Type.Dictionary?): GuiObject | Instance
+	local element = elementToCopy:Clone() :: Instance & {Parent: Instance}
 	element.Parent = parent
 	Properties:SetProperties(element, properties, true)
 	return element :: typeof(element)
 end
 
-function Index.modifyElement(element: GuiBase | Instance, properties: Type.Dictionary | nil)
+function Index.modifyElement(element: GuiObject | Instance, properties: Type.Dictionary?)
 	Properties:SetProperties(element, properties, false)
 end
 
