@@ -7,7 +7,7 @@ local Features = require(script.Features)
 
 local Index = {}
 
-function Index.createElement(parent: Instance, elementType: Type.Element, properties: Type.Dictionary?, features: Type.Dictionary?): GuiBase | Instance
+function Index.createElement(parent: Instance, elementType: Type.Element, properties: Type.Dictionary?, features: Type.Dictionary?): GuiObject | Instance
 	local element = Instance.new(elementType) :: Instance & {Parent: Instance}
 	element.Parent = parent
 	Properties:SetProperties(element, properties, true)

@@ -14,9 +14,9 @@ export type Children = {
 
 export type Template = {
 	elementType: Element,
-	properties: Dictionary | nil,
-	features: Dictionary | nil,
-	children: Children | nil
+	properties: Dictionary?,
+	features: Dictionary?,
+	children: Children?
 }
 
 return nil

@@ -28,7 +28,7 @@ function Properties:SetPropertiesFromTemplate(element: GuiObject | Instance, tem
 	end
 
 	--if the template has properties specified, apply these
-	for property: string, value: any in pairs(template.properties) do
+	for property: string, value: any in pairs(template.properties :: Type.Dictionary) do
 		element[property] = value
 	end
 

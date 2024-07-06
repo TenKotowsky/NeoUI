@@ -1,7 +1,7 @@
 # NeoUI
 NeoUI is a strictly-typed Roblox Luau library making it easier to dynamically generate UI.
 
-Also provides some utilities like default properties of gui objects being different than they normally are, for exmaple ScreenGuis have IgnoreGuiInset enabled by default, as most of the time you probably want it to be enabled.
+Also provides some utilities like default properties of gui objects being different than they normally are, for exmaple ScreenGuis have IgnoreGuiInset enabled by default, as most of the time you probably want it to be enabled. Its most useful feature is creating templates that can be used to easier make multiple UI elements that are the same/similiar, without the need to create each one individually.
 
 Used by Tower Defense NEO (currently only in the lobby).
 
