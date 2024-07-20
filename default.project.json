@@ -1,11 +1,11 @@
 {
-  "name": "NeoDialog",
+  "name": "NeoUI",
   "tree": {
     "$className": "DataModel",
 
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-      "NeoDialog": {
+      "NeoUI": {
         "$path": "src"
       }
     },
